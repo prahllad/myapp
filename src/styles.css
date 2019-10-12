@@ -1,0 +1,43 @@
+body {
+  background: #fbfbfb;
+}
+.np {
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+a:after {
+    border:none;
+}
+a:active,
+a:focus {
+    outline:0;
+    border:none;
+    -moz-outline-style:none;
+}
+.error {
+    color: rgb(248, 10, 10) !important;
+    font-size: 0.7em !important;
+    text-align: left !important;
+    margin-top: inherit;
+}
+.success {
+    color: rgb(83, 245, 8) !important;
+    font-size: 0.8em;
+    text-align: left;
+}
+.social-login {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.social-login li {
+  display: inline-block;
+  list-style: none;
+  padding: 0px 10px;
+}
+.social-login li img{
+  width: 30px;
+  height: 30px;
+}

@@ -1,0 +1,24 @@
+<h1>Dashboard</h1>
+<p>Name:{{user.name}}</p>
+<p>Email:{{user.email}}</p>
+<p>Add Phone</p>
+<p><input type="tel" placeholder="Enter Phone Number" [value]="user.phone?user.phone:''" #number><img *ngIf="user.phone" src="http://icons.iconarchive.com/icons/tatice/cristal-intense/256/ok-icon.png" alt="Smiley face" height="42" width="42"></p>
+<div  [style.display]="verify" > 
+  <!--  -->
+<p >Enter verification code sent to your phone</p>
+<p><input type="text" placeholder="verification code" #code></p>
+</div>
+<p *ngIf="!user.phone"><button (click)="sendCode(number,code)">Verify</button></p>
+<!-- <p>User Id:{{user.id}}</p> -->
+<ul class="social-login">
+    <li>
+      <a href="javascript:void()"><img src="assets/images/fb.png"></a>
+      <input type="submit" class="btn btn-primary" (click)="sociaLink('facebook')" [value]="fbButton">
+    </li>
+    <li>
+      <a href="javascript:void()" *ngIf="!isUserExist" ><img src="assets/images/google.png"></a>
+      <input type="submit"   class="btn btn-primary" (click)="sociaLink('google')" [value]="gButton">
+      
+    </li>
+  </ul>
+<button class="btn btn-warning" (click)="logout()">Logout</button>
