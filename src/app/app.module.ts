@@ -11,6 +11,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {RedirectUri} from './components/redirectUri/redirect-uri.component';
 import {proRedirectUri} from './components/protected-redirectUri/protected-redirectUri';
 import {LoginPhoneComponent} from './components/phoneLogin/phone.component';
+import {restPasswordComponent} from './components/resetPassword/restPassword.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import {LoginPhoneComponent} from './components/phoneLogin/phone.component';
     DashboardComponent,
     RedirectUri,
     proRedirectUri,
-    LoginPhoneComponent
+    LoginPhoneComponent,
+    restPasswordComponent
   ],
   imports: [
     BrowserModule,

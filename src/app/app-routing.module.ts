@@ -9,6 +9,7 @@ import { AuthGuard } from './middlewares/auth.guard';
 import {RedirectUri} from './components/redirectUri/redirect-uri.component';
 import {proRedirectUri} from './components/protected-redirectUri/protected-redirectUri';
 import {LoginPhoneComponent} from './components/phoneLogin/phone.component';
+import {restPasswordComponent} from './components/resetPassword/restPassword.component';
 const routes: Routes = [
   {
     path: '',
@@ -30,6 +31,12 @@ const routes: Routes = [
     component: LoginPhoneComponent,
     canActivate: [LoginGuard]
   },
+  {
+    path: 'resetPassword',
+    component: restPasswordComponent,
+    canActivate: [LoginGuard]
+  },
+ 
   {
     path: 'dashboard',
     component: DashboardComponent,
