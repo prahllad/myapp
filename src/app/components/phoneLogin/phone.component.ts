@@ -43,10 +43,13 @@ export class LoginPhoneComponent implements OnInit, OnDestroy {
     });
   }
   login() {
+    let userAgent = navigator.userAgent;
+
     if (this.loginForm.valid) {
       let data = {
           phone:this.loginForm.value.phone,
-          code:this.loginForm.value.password
+          code:this.loginForm.value.password,
+          userAgent:userAgent
       };
       this.userService.phonelogin(data).pipe(takeUntil(this.ngUnsubscribe)).subscribe((success) => {
         this.cookieService.writeCookie('token', success.token, 2);
@@ -58,6 +61,7 @@ export class LoginPhoneComponent implements OnInit, OnDestroy {
   }
   checkUserExist() {
     if (this.userForm.valid) {
+      document.getElementById('btn').innerHTML = 'submitting......'
       this.userService.phonelogin(this.userForm.value).pipe(takeUntil(this.ngUnsubscribe)).subscribe((success) => {
         console.log('userExist', success);
         this.initLoginForm(success.phone);

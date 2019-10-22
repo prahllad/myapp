@@ -43,7 +43,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
   login() {
+    let userAgent = navigator.userAgent;
     if (this.loginForm.valid) {
+      this.loginForm.value['userAgent'] = userAgent;
       this.userService.login(this.loginForm.value).pipe(takeUntil(this.ngUnsubscribe)).subscribe((success) => {
         this.cookieService.writeCookie('token', success.token, 2);
         this.router.navigateByUrl('/dashboard');
