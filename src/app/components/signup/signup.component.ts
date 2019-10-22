@@ -49,6 +49,9 @@ export class SignupComponent implements OnInit, OnDestroy {
   }
   signup() {
     if (this.signupForm.valid && !this.byAuth) {
+      
+      let element = document.getElementById('signup');
+      element['value'] = 'Processing......'
       this.userService.register(this.signupForm.value).pipe(takeUntil(this.ngUnsubscribe)).subscribe((success) => {
         console.log('success:::::::::::: ', success);
         this.cookieService.writeCookie('token', success.token, 2);

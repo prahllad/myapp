@@ -23,7 +23,7 @@
           <p class="error" *ngIf="signupForm.controls.password.errors.required"><i class="fa fa-exclamation-triangle"></i> Password is required</p>
         </div>
       </div>
-      <input type="submit" class="btn btn-primary" value="Sign-Up">
+      <input type="submit" class="btn btn-primary" id="signup" value="Sign-Up">
     </form>
     <p>Already have account <a [routerLink]="['/login']">Sign-In Here</a></p>
   </div>
