@@ -61,7 +61,8 @@ export class LoginPhoneComponent implements OnInit, OnDestroy {
   }
   checkUserExist() {
     if (this.userForm.valid) {
-      document.getElementById('btn').innerHTML = 'submitting......'
+      let element = document.getElementById('btn');
+      element['value'] = 'submitting......'
       this.userService.phonelogin(this.userForm.value).pipe(takeUntil(this.ngUnsubscribe)).subscribe((success) => {
         console.log('userExist', success);
         this.initLoginForm(success.phone);
