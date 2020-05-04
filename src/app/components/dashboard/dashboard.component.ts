@@ -4,6 +4,19 @@ import { CookieService } from 'src/app/services/cookie.service';
 import { UserService } from 'src/app/services/user.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import {FileUploadComponent} from './../upload-image/imageUpload.component';
+class Person {
+  id: number;
+  firstName: string;
+  lastName: string;
+}
+
+class DataTablesResponse {
+  data: any[];
+  draw: number;
+  recordsFiltered: number;
+  recordsTotal: number;
+}
 
 @Component({
   selector: 'app-dashboard',
@@ -11,6 +24,12 @@ import { Subject } from 'rxjs';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, OnDestroy {
+ 
+  persons: Person[] = [];
+  // We use this trigger because fetching the list of persons can be quite long,
+  // thus we ensure the data is fetched before rendering
+  p: number = 1;
+  collection: any = [];  
   private ngUnsubscribe: Subject<any> = new Subject();
   user: any;
   fbButton:String = 'Connect to Facebook';
@@ -24,6 +43,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getUser();
+    this.userService.fetchData().subscribe((res)=>{
+     this.collection = JSON.parse(res);
+
+    });
+    const that = this;
+
+    
   }
   ngOnDestroy() {
     this.ngUnsubscribe.next();

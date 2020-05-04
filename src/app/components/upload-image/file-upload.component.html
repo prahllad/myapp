@@ -1,0 +1,4 @@
+<input (change)="onImagePicked($event)" placeholder="Upload Image" 
+   type="file" />
+   <button (click)="onImageUpload()">Upload Image</button>
+   <img [src]="imageUrl" *ngIf="imageUrl" alt="Smiley face" width="70" height="90">

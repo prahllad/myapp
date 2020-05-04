@@ -40,6 +40,9 @@ export class BaseService extends CookieService {
   protected extractData(httpResponse: HttpResponse<Object>) {
     return httpResponse['data'] || {};
   }
+  protected extractJson(httpResponse: HttpResponse<Object>) {
+    return JSON.stringify(httpResponse);
+  }
   protected handleError(httpErrorResponse: HttpErrorResponse) {
     return throwError(httpErrorResponse['error'].error || {});
   }

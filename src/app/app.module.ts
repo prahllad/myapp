@@ -12,7 +12,9 @@ import {RedirectUri} from './components/redirectUri/redirect-uri.component';
 import {proRedirectUri} from './components/protected-redirectUri/protected-redirectUri';
 import {LoginPhoneComponent} from './components/phoneLogin/phone.component';
 import {restPasswordComponent} from './components/resetPassword/restPassword.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { from } from 'rxjs';
+import {FileUploadComponent} from './components/upload-image/imageUpload.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,12 @@ import { from } from 'rxjs';
     RedirectUri,
     proRedirectUri,
     LoginPhoneComponent,
-    restPasswordComponent
+    restPasswordComponent,
+    FileUploadComponent
+
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

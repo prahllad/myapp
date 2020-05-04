@@ -9,16 +9,26 @@
 <p><input type="text" placeholder="verification code" #code></p>
 </div>
 <p *ngIf="!user.phone"><button (click)="sendCode(number,code)">Verify</button></p>
-<!-- <p>User Id:{{user.id}}</p> -->
-<ul class="social-login">
-    <li>
-      <a href="javascript:void()"><img src="assets/images/fb.png"></a>
-      <input type="submit" class="btn btn-primary" (click)="sociaLink('facebook')" [value]="fbButton">
-    </li>
-    <li>
-      <a href="javascript:void()"><img src="assets/images/google.png"></a>
-      <input type="submit"   class="btn btn-primary" (click)="sociaLink('google')" [value]="gButton">
-      
-    </li>
-  </ul>
+<!-- <p><input type="text" placeholder="Address" #code></p> -->
+<!-- <table datatable [dtOptions]="dtOptions" class="row-border hover"></table> -->
+<!-- <ul>
+  <li *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }"> {{item.name}} </li>
+</ul> -->
+<!-- <table>
+  <tr>
+    <th>Country Name</th>
+    <th>Capital</th>
+    <th>Regeion</th>
+    <th>Area</th>
+  </tr>
+  <tr *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }">
+    <td>{{item.name}}</td>
+    <td>{{item.capital}}</td>
+    <td>{{item.region}}</td>
+    <td>{{item.area}}</td>
+
+  </tr>
+</table> -->
+<!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+<app-file-upload></app-file-upload><br>
 <button class="btn btn-warning" (click)="logout()">Logout</button>

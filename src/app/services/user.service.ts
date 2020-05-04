@@ -71,4 +71,13 @@ export class UserService extends BaseService {
     const url = `${this.apiUrl}/login/phone`;
     return this.httpClient.post(url, data).pipe(map(this.extractData), catchError(this.handleError));
   }
+  fetchData(){
+    return this.httpClient.get('https://restcountries.eu/rest/v1/all').pipe(map(this.extractJson),catchError(this.handleError));
+  }
+  imageUpload(imageForm) {
+    console.log('image uploading');
+    return this.httpClient.post(`${this.apiUrl}/upload`, 
+    imageForm).pipe(map(this.extractData),catchError(this.handleError));
+  
+   }
 }
